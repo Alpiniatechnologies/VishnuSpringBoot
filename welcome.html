@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>JobSeeker Login</title> 
+</head>
+<body>
+<form action="/login" method="POST">
+
+<h4>Welcome to Login Page</h4>
+<table>
+<tr>
+<td>UserName:</td>
+<td><input type="text" id="username" name="username"/></td>
+</tr>
+<tr>
+<td>Password:</td>
+<td><input type="password" id="password" name="password"/></td>
+</tr>
+</table>
+<input type="submit" id="submitLogin" name="submitLogin" value="LOGIN"/>
+</form>
+</body>
+</html>
