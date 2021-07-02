@@ -35,12 +35,18 @@ public class JobSeekerController {
 	}
 
 	
-	
+	/*
 	@RequestMapping(value="/dashboard",method =RequestMethod.POST)
 	public String DashBoard() {
 		return null;
-		
+	*/
+	
+	@RequestMapping(value="/register",method =RequestMethod.POST)
+	public String register(@RequestParam("fName") String firstName,@RequestParam("mName") String middleName,@RequestParam("lName") String lastName,@RequestParam("email") String email,@RequestParam("mobile") String mobile) {
+		service.saveRegisterDetails(firstName, middleName, lastName, email, mobile);
+		return "registered";
 	}
+	
 	
 	
 }
