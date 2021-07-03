@@ -33,5 +33,37 @@ public class JobSeekersRepository {
 		}
 		
 	}
+	public JobSeekersModel search(String search) {
+		Connection con=null;
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		JobSeekersModel js=null;
+		try {
+			
+			String query="select * from jobseekers where firstname='"+search+"'";
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/world", "root", "6594shiva");
+			stmt=con.prepareStatement(query);
+			//stmt.setString(1, search);
+			rs=stmt.executeQuery(query);
+			while(rs.next()) {
+				js=new JobSeekersModel(rs.getString("firstname"),rs.getString("middlename"),rs.getString("lastname"),rs.getString("email"),rs.getString("mobile"));
+				System.out.println(rs.getString("firstname"));
+				System.out.println(rs.getString("middlename"));
+				System.out.println(rs.getString("lastname"));
+				System.out.println(rs.getString("email"));
+				System.out.println(rs.getString("mobile"));
+								
+				
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return js;
+		
+	}	
 
 }
