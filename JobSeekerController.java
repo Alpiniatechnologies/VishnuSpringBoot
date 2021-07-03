@@ -48,5 +48,12 @@ public class JobSeekerController {
 	}
 	
 	
+	@RequestMapping(value="/search", method=RequestMethod.POST)
+	public String search(@RequestParam("search") String search) {
+		System.out.println("Search value from html="+search);
+		JobSeekersModel js=service.search(search);
+		return "registered";
+	}
+	
 	
 }
