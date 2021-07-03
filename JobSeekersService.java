@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class JobSeekersService {
 	
+	@Autowired
+	JobSeekersRepository repository;
 	
 	public String validateUserDetails(String username,String password) {
 		String status=null;
@@ -16,6 +18,18 @@ public class JobSeekersService {
 		}
 		return status;
 		
+	}
+	
+	public void saveRegisterDetails(String firstName,String middleName,String lastName,String email,String mobile) {
+		repository.saveRegisterDetails(firstName, middleName, lastName, email, mobile);
+		
+	}
+	
+	
+	
+	public JobSeekersModel search(String search) {
+		JobSeekersModel js=repository.search(search);
+		return js;
 	}
 
 }
