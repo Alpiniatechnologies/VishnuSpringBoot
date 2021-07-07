@@ -64,6 +64,58 @@ public class JobSeekersRepository {
 		
 		return js;
 		
+		
 	}	
+	
+	public String checkLoginDetails(String username,String password) {
+		Connection con=null;
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		String status=null;
+		try {
+			String query="select * from jobseekerSignIn where username='"+username+"' and password='"+password+"'";
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/world", "root", "6594shiva");
+			stmt=con.prepareStatement(query);
+			rs=stmt.executeQuery(query);
+			if(rs.next()) {
+				status="validUser";
+			}else {
+				status="notValidUser";
+			}
+			con.close();
+			stmt.close();
+			rs.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return status;
+		
+	}
+	
+	
+	
+	
+	public void saveSignInDetailsToDb(String userName,String password,String recoveryEmail) {
+		Connection con=null;
+		PreparedStatement stmt=null;
+		try {
+			String query="insert into jobseekersignin(username,password,recoveryEmail) values(?,?,?)";
+			Class.forName("com.mysql.cj.jdbc.Driver");	
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/world", "root", "6594shiva");
+			stmt=con.prepareStatement(query);
+			stmt.setString(1, userName);
+			stmt.setString(2, password);
+			stmt.setString(3, recoveryEmail);
+			stmt.execute();
+			
+			con.close();
+			stmt.close();
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }
