@@ -55,5 +55,25 @@ public class JobSeekerController {
 		return "registered";
 	}
 	
+	@RequestMapping("searchFromHome")
+	public String searchFromHome() {
+		return "registered";
+	}
+	
+	
+	
+	@RequestMapping("signIn")
+	public String signInPage() {
+		return "signIn";
+	}
+	
+	
+	@RequestMapping(value="/submitSignInDetails", method=RequestMethod.POST)
+	public String submitSignInToDB(@RequestParam("userName")String username,@RequestParam("password")String password,@RequestParam("recoveryEmail")String recoveryEmail) {
+		service.submitSignInToDB(username, password, recoveryEmail);
+		return "welcome";
+	}
+	
+	
 	
 }
