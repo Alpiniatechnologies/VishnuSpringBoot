@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>k</title> 
+</head>
+<body>
+<h2>Hi User, Welcome to "ALPINIA TECHNOLOGIES"</h2>
+<h4>Please Register yourself to login to our application</h4>
+<form action="/submitSignInDetails" method="POST">
+<table>
+<tr>
+<td>Enter User Name:</td>
+<td><input type="text" id="userName" name="userName" /></td>
+</tr>
+<tr>
+<td>Enter Password:</td>
+<td><input type="text" id="password" name="password" /></td>
+</tr>
+<tr>
+<td>Enter Recovery Email:</td>
+<td><input type="text" id="recoveryEmail" name="recoveryEmail"></td>
+</tr>
+</table>
+<input type="submit" value="SignIn"/>
+</form>
+</body>
+</html>

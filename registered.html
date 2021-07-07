@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>search page</title> 
+</head>
+<body>
+
+<h2>Entered details saved successfully in Database</h2>
+<form action="/search" method="POST">
+<input type="text" id="search" name="search" />
+<input type="submit" value="SEARCH"/>
+</form>
+
+<table  th:each="data : ${jobSeeker}">
+
+<tr>
+<td>First Name:</td>
+
+<td><input th:text="${data.firstName}"></td>
+</tr>
+<tr>
+<td>Middle Name:</td>
+<td><input th:text="${data.middleName}"></td>
+</tr>
+<tr>
+<td>Last Name:</td>
+<td><input th:text="${data.lastName}"></td>
+</tr>
+<tr>
+<td>Email:</td>
+<td><input th:text="${data.email}"></td>
+</tr>
+<tr>
+<td>Mobile:</td>
+<td><input th:text="${data.mobile}"></td>
+</tr>
+</table>
+
+
+
+
+</body>
+</html>
